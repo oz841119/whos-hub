@@ -1,0 +1,29 @@
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.navBarTitle {
+    font-weight: 700;
+}
+
+.navItems {
+    display: flex;
+    gap: 0 20px;
+    font-size: 16px;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px 6px;
+    gap: 0 2px;
+}
+.navItem:hover {
+    transform: scale(1.1);
+}

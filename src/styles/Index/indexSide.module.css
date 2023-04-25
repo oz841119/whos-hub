@@ -1,0 +1,22 @@
+.indexSide {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+}
+
+.indexSideHotArticleWrap {
+    background-color: var(--sub-bg-color);
+    padding: 12px;
+}
+
+.indexSideHotArticleWrapTitle {
+    font-size: 12px;
+}
+
+.indexSidePlaceholder {
+    padding: 12px;
+    height: 200px;
+    font-size: 12px;
+    background-color: var(--sub-bg-color);
+}
