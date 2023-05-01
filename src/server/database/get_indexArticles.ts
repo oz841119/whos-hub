@@ -5,7 +5,6 @@ export default function getAritcle() {
         const collection = client.db('whoshub').collection('articles')
         const projection = {projection: {content: false}}
         const doc = await collection.find({}, projection).limit(10).toArray()
-        console.log(doc);
         resolve(doc)
     })
 }

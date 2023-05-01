@@ -7,8 +7,6 @@ import bn from '@/assets/image/ts5-0.png'
 
 
 export default function Index({articles}: {articles: any}) {
-    console.log(articles);
-    
     return (
         <div className={style.index}>
             <div className={style.indexMain}>
