@@ -6,8 +6,8 @@ interface ArticleProp  {
     title: string
     summary: string
     views: number
-    releaseDate: string
-    editDate: string
+    release_date: string
+    edit_date: string
     id: number
 }
 
@@ -16,7 +16,7 @@ interface ArticlesProp  {
     articles: ArticleProp[]
 }
 
-function IndexMainArticle({title, summary, views, releaseDate, editDate, id}: ArticleProp) {
+function IndexMainArticle({title, summary, views, release_date, edit_date, id}: ArticleProp) {
     return (
         <Link href={'/article/' + id}>
             <div className={style.indexMainArticle}>
@@ -27,10 +27,10 @@ function IndexMainArticle({title, summary, views, releaseDate, editDate, id}: Ar
                         <MdOutlineVisibility/>{views}
                     </div>
                     <div className={style.indexMainArticleInfoItem}>
-                        <MdOutlineDateRange/>{releaseDate}
+                        <MdOutlineDateRange/>{release_date}
                     </div>
                     <div className={style.indexMainArticleInfoItem}>
-                        <MdUpdate/>{editDate}
+                        <MdUpdate/>{edit_date}
                     </div>
                 </div>
                 <div className={style.indexMainArticleBr}/>
@@ -43,7 +43,7 @@ export default function IndexMainArticles({articles}: ArticlesProp) {
     return (
         <div className={style.indexMainArticles}>
             {articles.map(e => (
-                <IndexMainArticle title={e.title} summary={e.summary} views={e.views} releaseDate={e.releaseDate} editDate={e.editDate} id={e.id} key={e.id}/>
+                <IndexMainArticle title={e.title} summary={e.summary} views={e.views} release_date={e.release_date} edit_date={e.edit_date} id={e.id} key={e.id}/>
             ))}
         </div>
     )

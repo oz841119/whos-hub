@@ -1,14 +1,13 @@
 import style from '@/styles/Index/index.module.css'
 import IndexMainArticles from '@/components/Index/IndexMainArticles'
 import IndexSide from '@/components/Index/IndexSide'
-import articlesJSON from '@/assets/json/articles.json'
 import Image from 'next/image';
 import bn from '@/assets/image/ts5-0.png'
 
 
 
-export default function Index({data}: {data: any}) {
-    console.log(data);
+export default function Index({articles}: {articles: any}) {
+    console.log(articles);
     
     return (
         <div className={style.index}>
@@ -16,7 +15,7 @@ export default function Index({data}: {data: any}) {
                 <div className={style.indexMainBN}>
                     <Image src={bn} alt="" style={{objectFit: "cover"}} priority fill></Image>
                 </div>
-                <IndexMainArticles articles={articlesJSON}/>
+                <IndexMainArticles articles={articles}/>
             </div>
             <IndexSide/>
         </div>
@@ -24,8 +23,8 @@ export default function Index({data}: {data: any}) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch(process.env.NEXT_PUBLIC_API_PATH + '/get_article')
-    const data = await res.json()
-    return { props: { data } }
+    const res = await fetch(process.env.NEXT_PUBLIC_API_PATH + '/get_indexArticles')
+    const articles = await res.json()
+    return { props: { articles } }
 }
   
