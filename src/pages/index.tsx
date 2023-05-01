@@ -27,4 +27,3 @@ export async function getServerSideProps() {
     const articles = await res.json()
     return { props: { articles } }
 }
-  
