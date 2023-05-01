@@ -13,15 +13,15 @@ export default function Index({articles}: {articles: any}) {
                 <div className={style.indexMainBN}>
                     <Image src={bn} alt="" style={{objectFit: "cover"}} priority fill></Image>
                 </div>
-                <IndexMainArticles articles={articles}/>
+                {/* <IndexMainArticles articles={articles}/> */}
             </div>
             <IndexSide/>
         </div>
     )
 }
 
-export async function getServerSideProps() {
-    const res = await fetch(process.env.NEXT_PUBLIC_API_PATH + '/get_indexArticles')
-    const articles = await res.json()
-    return { props: { articles } }
-}
+// export async function getServerSideProps() {
+//     const res = await fetch(process.env.NEXT_PUBLIC_API_PATH + '/get_indexArticles')
+//     const articles = await res.json()
+//     return { props: { articles } }
+// }
