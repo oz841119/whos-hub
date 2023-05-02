@@ -13,6 +13,7 @@ export default function Document() {
               function gtag() {dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-XWFCGB25NN');
+              console.log('GA')
             `}
           </Script>
         </Head>
