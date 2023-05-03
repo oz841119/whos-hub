@@ -1,4 +1,22 @@
 .main {
     max-width: var(--main-max-width);
-    margin: 0 auto;
+    margin: 60px auto;
+    border-radius: var(--main-border-radius);
+}
+
+.titleWrap {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--main-font-color);
+}
+
+.info {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }

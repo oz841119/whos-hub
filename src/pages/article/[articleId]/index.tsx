@@ -1,4 +1,5 @@
 import style from './index.module.css'
+import {MdOutlineVisibility, MdUpdate, MdOutlineDateRange} from 'react-icons/md'
 
 type Context = {
     query: {
@@ -23,11 +24,15 @@ export default function ArticlePage({articleId, article}: ArticlePageProps) {
     const {title, content, release_date, edit_date, views, summary} = article
     return (
         <div className={style.main}>
-            <div>瀏覽數: {views}</div>
-            <div>發布日期: {release_date}</div>
-            <div>編輯日期: {edit_date}</div>
+            <div className={style.titleWrap}>
+                <h2 className={style.title}>{title}</h2>
+                <div className={style.info}>
+                    <div className={style.infoItem}><MdOutlineVisibility/> {views}</div>
+                    <div className={style.infoItem}><MdOutlineDateRange/> {release_date}</div>
+                    <div className={style.infoItem}><MdUpdate/> {edit_date}</div>
+                </div>
+            </div>
             <div>簡述: {summary}</div>
-            <h2>{title}</h2>
             <div dangerouslySetInnerHTML={{__html: content}}></div>
         </div>
     )

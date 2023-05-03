@@ -45,6 +45,7 @@
     font-size: 12px;
     margin-top: auto;
     margin-left: auto;
+    gap: 8px
 }
 
 .indexMainArticleInfoItem {
@@ -52,5 +53,5 @@
     align-items: center;
     justify-content: flex-end;
     gap: 2px;
-    width: 100px;
+    min-width: 50px;
 }
