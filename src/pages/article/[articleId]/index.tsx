@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import style from './index.module.css'
 import {MdOutlineVisibility, MdUpdate, MdOutlineDateRange} from 'react-icons/md'
 
@@ -23,18 +24,30 @@ type Article = {
 export default function ArticlePage({articleId, article}: ArticlePageProps) {
     const {title, content, release_date, edit_date, views, summary} = article
     return (
-        <div className={style.main}>
-            <div className={style.titleWrap}>
-                <h2 className={style.title}>{title}</h2>
-                <div className={style.info}>
-                    <div className={style.infoItem}><MdOutlineVisibility/> {views}</div>
-                    <div className={style.infoItem}><MdOutlineDateRange/> {release_date}</div>
-                    <div className={style.infoItem}><MdUpdate/> {edit_date}</div>
+        <>
+            <ArticleMetaData metaData={{title, summary}}/>
+            <div className={style.main}>
+                <div className={style.titleWrap}>
+                    <h2 className={style.title}>{title}</h2>
+                    <div className={style.summary}>{summary}</div>
+                    <div className={style.info}>
+                        <div className={style.infoItem}><MdOutlineVisibility/> {views}</div>
+                        <div className={style.infoItem}><MdOutlineDateRange/> {release_date}</div>
+                        <div className={style.infoItem}><MdUpdate/> {edit_date}</div>
+                    </div>
                 </div>
+                <div dangerouslySetInnerHTML={{__html: content}}></div>
             </div>
-            <div>簡述: {summary}</div>
-            <div dangerouslySetInnerHTML={{__html: content}}></div>
-        </div>
+        </>
+    )
+}
+
+function ArticleMetaData(props: any) {
+    return (
+        <Head>
+            <meta name="title" content={props.metaData.title}/>
+            <meta name="description" content={props.metaData.summary}/>
+        </Head>
     )
 }
 
