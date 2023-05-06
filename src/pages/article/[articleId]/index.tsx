@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import style from './index.module.css'
 import {MdOutlineVisibility, MdUpdate, MdOutlineDateRange} from 'react-icons/md'
+import IndexSide from '@/components/Index/IndexSide'
 
 type Context = {
     query: {
@@ -27,16 +28,19 @@ export default function ArticlePage({articleId, article}: ArticlePageProps) {
         <>
             <ArticleMetaData metaData={{title, summary}}/>
             <div className={style.main}>
-                <div className={style.titleWrap}>
-                    <h2 className={style.title}>{title}</h2>
-                    <div className={style.summary}>{summary}</div>
-                    <div className={style.info}>
-                        <div className={style.infoItem}><MdOutlineVisibility/> {views}</div>
-                        <div className={style.infoItem}><MdOutlineDateRange/> {release_date}</div>
-                        <div className={style.infoItem}><MdUpdate/> {edit_date}</div>
+                <div className={style.container}>
+                    <div className={style.titleWrap}>
+                        <h2 className={style.title}>{title}</h2>
+                        <div className={style.summary}>{summary}</div>
+                        <div className={style.info}>
+                            <div className={style.infoItem}><MdOutlineVisibility/> {views}</div>
+                            <div className={style.infoItem}><MdOutlineDateRange/> {release_date}</div>
+                            <div className={style.infoItem}><MdUpdate/> {edit_date}</div>
+                        </div>
                     </div>
+                    <div className={style.content} dangerouslySetInnerHTML={{__html: content}}></div>
                 </div>
-                <div dangerouslySetInnerHTML={{__html: content}}></div>
+                <IndexSide/>
             </div>
         </>
     )

@@ -23,6 +23,7 @@
     cursor: pointer;
     padding: 4px 6px;
     gap: 0 2px;
+    font-weight: 700;
 }
 .navItem:hover {
     transform: scale(1.1);
