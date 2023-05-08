@@ -2,6 +2,7 @@ import Head from 'next/head'
 import style from './index.module.css'
 import {MdOutlineVisibility, MdUpdate, MdOutlineDateRange} from 'react-icons/md'
 import IndexSide from '@/components/Index/IndexSide'
+import dayjs from 'dayjs'
 
 type Context = {
     query: {
@@ -24,6 +25,11 @@ type Article = {
 
 export default function ArticlePage({articleId, article}: ArticlePageProps) {
     const {title, content, release_date, edit_date, views, summary} = article
+
+    function formatDate(timestamp: number) {
+        if(!timestamp || typeof timestamp !== 'number') return ''
+        return dayjs(timestamp).format('YYYY-MM-DD')
+    }
     return (
         <>
             <ArticleMetaData metaData={{title, summary}}/>
@@ -34,8 +40,8 @@ export default function ArticlePage({articleId, article}: ArticlePageProps) {
                         <div className={style.summary}>{summary}</div>
                         <div className={style.info}>
                             <div className={style.infoItem}><MdOutlineVisibility/> {views}</div>
-                            <div className={style.infoItem}><MdOutlineDateRange/> {release_date}</div>
-                            <div className={style.infoItem}><MdUpdate/> {edit_date}</div>
+                            <div className={style.infoItem}><MdOutlineDateRange/> {formatDate(release_date)}</div>
+                            <div className={style.infoItem}><MdUpdate/> {formatDate(edit_date)}</div>
                         </div>
                     </div>
                     <div className={style.content} dangerouslySetInnerHTML={{__html: content}}></div>
