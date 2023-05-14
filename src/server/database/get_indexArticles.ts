@@ -6,6 +6,6 @@ export default function getAritcle() {
         const projection = {projection: {content: false}}
         const doc = await collection.find({}, projection).limit(10).toArray()
         resolve(doc)
-        db.close()
+        // db.close()
     })
 }

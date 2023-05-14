@@ -1,4 +1,5 @@
 import style from '@/styles/Index/indexMainArticles.module.css'
+import dayjs from 'dayjs'
 import Link from 'next/link'
 import {MdOutlineVisibility, MdUpdate, MdOutlineDateRange} from 'react-icons/md'
 
@@ -6,8 +7,8 @@ interface ArticleProp  {
     title: string
     summary: string
     views: number
-    release_date: string
-    edit_date: string
+    release_date: number
+    edit_date: number
     id: number
 }
 
@@ -17,6 +18,10 @@ interface ArticlesProp  {
 }
 
 function IndexMainArticle({title, summary, views, release_date, edit_date, id}: ArticleProp) {
+    function formatDate(timestamp: number) {
+        if(!timestamp || typeof timestamp !== 'number') return ''
+        return dayjs(timestamp).format('YYYY-MM-DD')
+    }
     return (
         <Link href={'/article/' + id}>
             <div className={style.indexMainArticle}>
@@ -27,10 +32,10 @@ function IndexMainArticle({title, summary, views, release_date, edit_date, id}: 
                         <MdOutlineVisibility/>{views}
                     </div>
                     <div className={style.indexMainArticleInfoItem}>
-                        <MdOutlineDateRange/>{release_date}
+                        <MdOutlineDateRange/>{formatDate(release_date)}
                     </div>
                     <div className={style.indexMainArticleInfoItem}>
-                        <MdUpdate/>{edit_date}
+                        <MdUpdate/>{formatDate(edit_date)}
                     </div>
                 </div>
                 <div className={style.indexMainArticleBr}/>

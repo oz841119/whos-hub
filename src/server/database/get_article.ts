@@ -5,6 +5,6 @@ export default function getAritcle(articleId: string) {
         const collection = client.db('whoshub').collection('articles')
         const doc = await collection.findOne({id: articleId})
         resolve(doc)
-        db.close()
+        // db.close()
     })
 }
