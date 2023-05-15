@@ -1,6 +1,7 @@
 import '../styles/init.css'
 import '../styles/global.css'
 import '../styles/var.css'
+import '../styles/globarEditor.css'
 import Layout from '../components/Layout/Layout'
 import GoogleAnalytics from '@/components/utils/GoogleAnalytics'
 
