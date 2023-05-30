@@ -34,6 +34,13 @@
     margin-top: 20px;
 }
 
+.content p {
+    margin: 15px 0;
+}
+.content li {
+    list-style: none;
+}
+
 .container {
     flex: 3;
     background-color: var(--sub-bg-color);
