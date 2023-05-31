@@ -2,11 +2,9 @@ import client from './db'
 export default function getAritcle(articleId: string) {
     return new Promise(async resolve => {
         const db = await client.connect()
-        console.log(123);
-        
         const collection = client.db('whoshub').collection('articles')
         const doc = await collection.findOne({id: articleId})
         resolve(doc)
-        // db.close()
+        client.close()
     })
 }

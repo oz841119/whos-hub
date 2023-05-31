@@ -5,7 +5,7 @@ export default function IndexSide() {
             <div className={style.indexSideHotArticleWrap}>
                 <div className={style.indexSideHotArticleWrapTitle}>熱門文章</div>
             </div>
-            <div className={style.indexSidePlaceholder}>廣告</div>
+            <div className={style.indexSidePlaceholder}>目錄</div>
         </div>
     )
 }
